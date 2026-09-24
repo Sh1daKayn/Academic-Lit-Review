@@ -11,11 +11,12 @@ description: >-
 
 This skill provides an end-to-end blueprint and automated toolchain for creating journal-ready systematic literature reviews. It replaces ad-hoc manual drafting with a reproducible, code-driven methodology that produces publication-grade Word (`.docx`) manuscripts featuring:
 
-1. **PRISMA 2020 Protocol Screening**: Audited identification, deduplication, eligibility filtering, and multi-tier Excel tracking from raw `.ris` database exports.
-2. **Standard 7-Table Academic Architecture**: Professional tables designed for empirical synthesis, institutional frictions, contract attributes, and research design.
+1. **PRISMA 2020 Protocol Screening & Flowchart**: Audited identification, deduplication, eligibility filtering, multi-tier Excel tracking, and automated 300 DPI PRISMA flowcharts.
+2. **Standard 7-Table Architecture & RoB Matrix**: Professional tables for empirical synthesis, institutional frictions, contract attributes, and ROBINS-I / Cochrane study quality assessment.
 3. **High-Contrast Typography & XML Styling**: Programmatic table rendering via `python-docx` using custom XML shading (`#1F4E79` navy headers, alternating `#F9FBFD` zebra stripes, exact cell padding, and border hierarchy).
 4. **Publication-Grade Visualizations**: 300 DPI charts styled in standard **Times New Roman** (Serif) with STIX math environments, avoiding label collisions and margin clipping.
-5. **Humanized Academic Tone**: Direct, empirical, and precise academic English with zero AI tells (no staged openings, no "Not X but Y" tropes, no filler summaries, no excessive em-dashes).
+5. **APA 7th Reference Engine**: Automated formatting of bibliographies with 0.5-inch hanging indents, italicized journal/volume runs, and active DOI hyperlinks.
+6. **Humanized Academic Tone**: Direct, empirical, and precise academic English with zero AI tells (no staged openings, no "Not X but Y" tropes, no filler summaries, no excessive em-dashes).
 
 ---
 
@@ -32,13 +33,17 @@ project_root/
 ├── docs/                                 # Final deliverables & figures
 │   ├── Literature_Review_Final.docx      # Compiled Word document
 │   └── figures/                          # 300 DPI figures (Times New Roman)
+│       ├── prisma_2020_flowchart.png     # Official PRISMA flow diagram
 │       ├── figure1_baseline_headroom.png
 │       └── figure2_simulation_curves.png
 │
-├── scripts/                              # Automated Python pipelines
-│   ├── analyze_ris.py                    # RIS parser & PRISMA audit exporter
-│   ├── generate_figures.py               # 300 DPI Times New Roman visualizations
-│   └── build_literature_review_docx.py   # Word document compiler
+├── templates/                            # Reusable generator modules
+│   ├── prisma_screening_template.py      # RIS parser & PRISMA Excel ledger
+│   ├── prisma_flowchart_generator.py     # PRISMA 2020 flow diagram builder
+│   ├── apa_reference_builder.py          # APA 7th bibliography builder
+│   ├── rob_matrix_template.py            # Risk of Bias matrix table builder
+│   ├── figure_generator_template.py      # 300 DPI Times New Roman visualizations
+│   └── docx_builder_template.py          # Word document compiler
 │
 └── README.md                             # Methodology & reproduction guide
 ```

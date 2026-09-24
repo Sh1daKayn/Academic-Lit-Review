@@ -27,11 +27,14 @@ Most academic literature reviews generated with standard LLMs or manual copy-pas
 | Feature | Description |
 | :--- | :--- |
 | **🔍 PRISMA 2020 Protocol Screening** | Automated `.ris` citation parsing (Web of Science / Scopus / PubMed), duplicate removal, eligibility attrition logging, and multi-tab Excel export. |
+| **📊 PRISMA 2020 Flow Diagram Generator** | Automated rendering of publication-grade PRISMA 2020 flowcharts (`Identification → Screening → Included`) in Times New Roman at 300 DPI. |
+| **📖 APA 7th Reference Auto-Builder** | Formats raw citation metadata into APA 7th references with precise 0.5-inch hanging indents, italicized journal/volume runs, and active DOI hyperlinks. |
+| **🛡️ Risk of Bias (RoB) Assessment Matrix** | Fulfills ROBINS-I / Cochrane standards with custom OpenXML tables featuring color-coded risk badge cells (`Low` green, `Moderate` amber, `High` red). |
 | **📑 7 Core Review Table Schemas** | Standardized blueprints for practice taxonomy, Boolean search design, screening attrition, empirical synthesis, institutional frictions vs. solutions, and empirical measurement mapping. |
 | **🎨 OpenXML High-Contrast Tables** | Programmatic table styling via `python-docx` with Deep Navy (`#1F4E79`) headers, alternating `#F9FBFD` zebra striping, custom cell padding, and bold row identifiers. |
 | **📈 Journal-Grade Visualizations** | 300 DPI charts in standard **Times New Roman** (Serif) with STIX math symbols, automatic annotation collision avoidance, and border-protected layouts. |
 | **✍️ Humanized Academic Tone** | Strict prose editing guidelines that eliminate LLM cliches, ensuring concise, causal, and quantitative academic English. |
-| **🛡️ Windows File-Lock Fallback** | Automatic fallback handling for `[Errno 13] PermissionError` when the target `.docx` file is open in Microsoft Word. |
+| **⚡ Windows File-Lock Fallback** | Automatic fallback handling for `[Errno 13] PermissionError` when the target `.docx` file is open in Microsoft Word. |
 
 ---
 
@@ -47,11 +50,14 @@ Academic-Lit-Review/
 ├── templates/                        # Modular, production-ready Python templates
 │   ├── docx_builder_template.py      # Word manuscript compiler with OpenXML styling
 │   ├── figure_generator_template.py  # 300 DPI Times New Roman Matplotlib generator
-│   └── prisma_screening_template.py  # RIS parser & PRISMA Excel screening ledger
+│   ├── prisma_screening_template.py  # RIS parser & PRISMA Excel screening ledger
+│   ├── prisma_flowchart_generator.py # ★ NEW: PRISMA 2020 flow diagram auto-generator
+│   ├── apa_reference_builder.py      # ★ NEW: APA 7th bibliography builder with hanging indents
+│   └── rob_matrix_template.py        # ★ NEW: ROBINS-I / Cochrane Risk of Bias matrix
 │
 └── examples/                         # Reference blueprints & runnable demos
     ├── table_blueprints.md           # Schemas & examples for the 7 core academic tables
-    └── demo_quickstart.py            # Self-contained runnable end-to-end demo
+    └── demo_quickstart.py            # Comprehensive runnable end-to-end demo
 ```
 
 ---
@@ -131,3 +137,4 @@ Once installed, instruct your AI assistant:
 ## 📄 License
 
 Distributed under the [MIT License](LICENSE). Copyright (c) 2026 Sh1daKayn.
+

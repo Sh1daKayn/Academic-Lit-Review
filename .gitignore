@@ -44,3 +44,4 @@ env/
 *.png
 !examples/*.png
 !docs/figures/*.png
+
